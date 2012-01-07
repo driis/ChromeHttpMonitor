@@ -4,5 +4,10 @@
 	</head>
 	<body>
 	Hello, world
+	<script type="text/javascript">
+		var bgPage = chrome.extension.getBackgroundPage();
+		alert("popup");
+		document.write(bgPage.a);
+	</script>
 	</body>
 </html>

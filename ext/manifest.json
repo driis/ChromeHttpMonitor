@@ -7,5 +7,5 @@
 		"default_icon": "icon.png",
 		"popup": "popup.html"
 	},
-	"permissions": ["background"]
+	"permissions": ["background","experimental","*://*"]
 }

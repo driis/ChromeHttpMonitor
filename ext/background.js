@@ -1,7 +1,10 @@
-var a, getA;
+x;
 
-a = 2;
+var listenBeforeRequest;
 
-getA = function() {
-  return a;
+listenBeforeRequest = function(args) {
+  var x;
+  return x = args;
 };
+
+chrome.experimental.webRequest.onBeforeRequest.addListener(listenBeforeRequest);

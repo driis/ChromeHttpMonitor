@@ -1,10 +1,7 @@
-x;
-
 var listenBeforeRequest;
 
 listenBeforeRequest = function(args) {
-  var x;
-  return x = args;
+  return console.log(args);
 };
 
 chrome.experimental.webRequest.onBeforeRequest.addListener(listenBeforeRequest);

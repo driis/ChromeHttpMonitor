@@ -1,1 +1,3 @@
-coffee -b -o ext -c .\background.coffee
+get-item *.coffee | foreach { 
+	coffee -b -o ext -c $_.FullName 
+}

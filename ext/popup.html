@@ -5,9 +5,10 @@
 	<body>
 	Hello, world
 	<script type="text/javascript">
-		var bgPage = chrome.extension.getBackgroundPage();
-		alert("popup");
-		document.write(bgPage.a);
+		var bgPage = chrome.extension.getBackgroundPage();		
+		chrome.browserAction.onClicked.addListener(function(tab) {
+			alert(bgPage.x);
+		});
 	</script>
 	</body>
 </html>

@@ -1,0 +1,1 @@
+coffee -b -o ext --watch . 

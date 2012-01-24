@@ -7,9 +7,14 @@
 	
 	<script type="text/javascript">
 		var bgPage = chrome.extension.getBackgroundPage();		
-		chrome.tabs.getSelected(function(tab) {
+		getSelectedTab(function(tab) {
 			console.log(tab);
-			document.write(tab.url);
+			var tab = findTabInfo(tab.id, bgPage);
+			if (tab) {
+				document.write(tab.url);
+			} else {
+				document.write("Tab not loaded while extension has been active");
+			}
 		});
 	</script>
 	</body>

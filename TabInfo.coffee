@@ -4,14 +4,16 @@ findTabInfo = (tabId, win) ->
 
 setTabInfo = (args) -> 
     tabId = args.tabId
-    info = new TabInfo tabId args.url
+    info = new TabInfo tabId, args.url
     window.headerbag[tabId] = info
+
+getSelectedTab = (callback) -> 
+  chrome.tabs.query(
+    {windowId: chrome.windows.WINDOW_ID_CURRENT, active: true}, 
+    (tabs) -> callback tabs[0])
   
 class TabInfo
-  @field Url
-  @field TabId
-  @field TotalResponseMs, default: 0
-	
-	constructor: (@tabId, @url) ->
+  totalResponseTime = 0
+  constructor: (@tabId, @url) ->
 
 window.headerbag = new Array()

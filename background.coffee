@@ -3,10 +3,11 @@ listenBeforeRequest = (args) ->
 
 beforeNavigate = (args) -> 
 	console.log "BeforeNavigate Tab #{args.tabId}, url = #{args.url}"
+	setTabInfo args
 
 navigationCompleted = (args) -> 
 	console.log "Navigation Completed Tab #{args.tabId}"
-	window.xyz = args.url
+
 
 chrome.webRequest.onBeforeRequest.addListener listenBeforeRequest, {
 	urls: ["http://*/*"]

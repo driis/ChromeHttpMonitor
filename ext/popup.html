@@ -1,12 +1,16 @@
 <html>
 	<head>
 		<title>Chrome Http Monitor</title>
+		<script src="TabInfo.js" ></script>
 	</head>
 	<body>
-	Hello, world
+	
 	<script type="text/javascript">
 		var bgPage = chrome.extension.getBackgroundPage();		
-		alert(bgPage.xyz);
+		chrome.tabs.getSelected(function(tab) {
+			console.log(tab);
+			document.write(tab.url);
+		});
 	</script>
 	</body>
 </html>

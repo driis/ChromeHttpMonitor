@@ -3,6 +3,7 @@
 		<title>Chrome Http Monitor</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script src="TabInfo.js" ></script>
+		<script src="popup.js" ></script>
 	</head>
 	<body>
 	<div id="container">
@@ -14,12 +15,9 @@
 		</table>
 	</div>
 	<script type="text/javascript">
+    	var backgroundPage = chrome.extension.getBackgroundPage();
 		getSelectedTab(function(tab) {
-			var bgPage = chrome.extension.getBackgroundPage();		
-			var tabInfo = findTabInfo(tab.id, bgPage);
-			if (tabInfo) {
-				$("#url").text(tab.url);
-			} 
+			renderPopup(tab, backgroundPage);
 		});
 	</script>
 	</body>

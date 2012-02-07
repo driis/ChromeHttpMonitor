@@ -13,14 +13,15 @@ getSelectedTab = (callback) ->
 
 setNavigationCompleted = (tab) -> 
   tabInfo = findTabInfo tab.tabId  
-  tabInfo.timestampEnd = tab.timeStamp
-  console.log tabInfo
+  tabInfo.timestampEnd = tab.timeStamp  
+  text = Math.round(tabInfo.totalResponseTime()).toString()
+  chrome.browserAction.setBadgeText { text: text, tabId: tab.tabId }  
 
 class TabInfo
   @timestampEnd = null
 
   totalResponseTime: -> 
-    @timestampEnd - @timestampBegin if @timestampEnd? 
+    Math.round @timestampEnd - @timestampBegin if @timestampEnd? 
 
   constructor: (tab) ->
     @timestampBegin = tab.timeStamp

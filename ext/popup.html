@@ -1,20 +1,25 @@
 <html>
 	<head>
 		<title>Chrome Http Monitor</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script src="TabInfo.js" ></script>
 	</head>
 	<body>
-	
+	<div id="container">
+		<table>
+			<tr>
+				<td>URL:</td>
+				<td><span id="url">-<span></td>
+			</tr>
+		</table>
+	</div>
 	<script type="text/javascript">
-		var bgPage = chrome.extension.getBackgroundPage();		
 		getSelectedTab(function(tab) {
-			console.log(tab);
-			var tab = findTabInfo(tab.id, bgPage);
-			if (tab) {
-				document.write(tab.url);
-			} else {
-				document.write("Tab not loaded while extension has been active");
-			}
+			var bgPage = chrome.extension.getBackgroundPage();		
+			var tabInfo = findTabInfo(tab.id, bgPage);
+			if (tabInfo) {
+				$("#url").text(tab.url);
+			} 
 		});
 	</script>
 	</body>

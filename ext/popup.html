@@ -1,13 +1,35 @@
 <html>
 	<head>
 		<title>Chrome Http Monitor</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="TabInfo.js" ></script>
+		<script src="popup.js" ></script>
 	</head>
 	<body>
-	Hello, world
+	<div id="container">
+		<table>
+			<tr>
+				<td>URL:</td>
+				<td><span id="url">-<span></td>
+			</tr>
+			<tr>
+				<td>Initial request</td>
+				<td><span id="initialRequestTime" >-</span></td>
+			</tr>
+			<tr>
+				<td>Complete page load</td>
+				<td><span id="loadTime">-</span> ms</td>
+			</tr>
+			<tr>
+				<td># Resources loaded</td>
+				<td><span id="resources"></span></td>
+			</tr>
+		</table>
+	</div>
 	<script type="text/javascript">
-		var bgPage = chrome.extension.getBackgroundPage();		
-		chrome.browserAction.onClicked.addListener(function(tab) {
-			alert(bgPage.x);
+    	var backgroundPage = chrome.extension.getBackgroundPage();
+		getSelectedTab(function(tab) {
+			renderPopup(tab, backgroundPage);
 		});
 	</script>
 	</body>

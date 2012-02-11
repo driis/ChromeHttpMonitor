@@ -7,5 +7,5 @@
 		"default_icon": "icon.png",
 		"popup": "popup.html"
 	},
-	"permissions": ["tabs", "background","webRequest", "webNavigation", "http://*/*"]
+	"permissions": ["tabs", "background","webRequest", "webNavigation", "http://*/*", "https://*/*"]
 }

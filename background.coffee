@@ -1,5 +1,5 @@
 urlFilter = {
-	urls: ["http://*/*"]
+	urls: ["http://*/*", "https://*/*"]
 }
 
 beforeNavigate = (args) -> 

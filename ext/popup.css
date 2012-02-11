@@ -50,5 +50,11 @@ label
 {
 	float:left;
 	width:40%;
+	margin-right:10px;
 	padding-top:5px;
+}
+
+input 
+{
+	width:55%;
 }

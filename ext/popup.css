@@ -2,6 +2,8 @@ body
 {
 	margin:0;
 	padding:0;
+	overflow-x:hidden;
+	overflow-y:auto;
 }
 div#main 
 {
@@ -11,6 +13,7 @@ div#main
 	font-family: Verdana;
 	font-size:11px;
 	overflow: hidden;
+	padding-right:15px;	
 }
 
 table 
@@ -42,4 +45,10 @@ div#urlContainer
 	white-space: nowrap;
 	overflow:hidden;
 	width:100%;
+}
+label 
+{
+	float:left;
+	width:40%;
+	padding-top:5px;
 }

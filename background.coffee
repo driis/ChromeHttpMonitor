@@ -1,10 +1,11 @@
-listenBeforeRequest = (args) -> 
-	
+urlFilter = {
+	urls: ["http://*/*"]
+}
 
 beforeNavigate = (args) -> 
 	console.log "BeforeNavigate Tab", args
 	if (args.frameId == 0)
-		setTabInfo args
+		setNavigationBegin args
 
 navigationCompleted = (args) -> 
 	console.log "Navigation Completed Tab", args
@@ -12,8 +13,7 @@ navigationCompleted = (args) ->
 		setNavigationCompleted args
 
 
-chrome.webRequest.onBeforeRequest.addListener listenBeforeRequest, {
-	urls: ["http://*/*"]
-}
+chrome.webRequest.onBeforeRequest.addListener registerRequest, urlFilter
+chrome.webRequest.onCompleted.addListener requestCompleted, urlFilter
 chrome.webNavigation.onBeforeNavigate.addListener beforeNavigate
 chrome.webNavigation.onCompleted.addListener navigationCompleted

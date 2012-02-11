@@ -8,3 +8,5 @@ renderPopup = (tab, page) ->
     	if mainRequest?
     		console.log mainRequest
     		$("#initialRequestTime").text mainRequest.totalResponseTime()
+    	if tabInfo.requests?
+    		$("#resources").text (Object.keys tabInfo.requests).length

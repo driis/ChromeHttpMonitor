@@ -6,9 +6,12 @@ renderPopup = (tab, page) ->
     	$("#loadTime").text tabInfo.totalResponseTime()
     	mainRequest = tabInfo.getMainRequest()
     	if mainRequest?
-    		console.log mainRequest
     		$("#initialRequestTime").text mainRequest.totalResponseTime()
+    		$("#hostIp").text mainRequest.ip
     	if tabInfo.requests?
     		$("#resources").text (Object.keys tabInfo.requests).length
     else
-    	$("#container").text("This tab was not loaded as a HTTP resource.")
+    	$("#notShown").text "This frame has content that is not supported."
+    	$("#container").hide()
+	
+    return null

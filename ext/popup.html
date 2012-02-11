@@ -3,28 +3,38 @@
 		<title>Chrome Http Monitor</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script src="TabInfo.js" ></script>
-		<script src="popup.js" ></script>
+		<script src="popup.js" ></script>		
+		<link href="popup.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-	<div id="container">
-		<table>
-			<tr>
-				<td>URL:</td>
-				<td><span id="url">-<span></td>
-			</tr>
-			<tr>
-				<td>Initial request</td>
-				<td><span id="initialRequestTime" >-</span> ms</td>
-			</tr>
-			<tr>
-				<td>Complete page load</td>
-				<td><span id="loadTime">-</span> ms</td>
-			</tr>
-			<tr>
-				<td># Resources loaded</td>
-				<td><span id="resources"></span></td>
-			</tr>
-		</table>
+	<div id="main" >
+		<div id="container">
+			<table>
+				<tr>
+					<td width="160px">URL:</td>
+					<td>
+						<span id="url">-</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Host:</td>
+					<td><span id="hostIp" >-</span></td>
+				</tr>
+				<tr>
+					<td>Initial request time:</td>
+					<td><span id="initialRequestTime" >-</span> ms</td>
+				</tr>
+				<tr>
+					<td>Complete page load time:</td>
+					<td><span id="loadTime">-</span> ms</td>
+				</tr>
+				<tr>
+					<td># Resources loaded:</td>
+					<td><span id="resources">-</span></td>
+				</tr>
+			</table>
+		</div>
+		<div id="notShown">&nbsp;</div>
 	</div>
 	<script type="text/javascript">
     	var backgroundPage = chrome.extension.getBackgroundPage();

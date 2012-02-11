@@ -41,6 +41,7 @@ requestCompleted = (req) ->
   if reqStored?
     reqStored.timeStampEnd = req.timeStamp
     reqStored.ip = req.ip
+    reqStored.headers = req.responseHeaders    
 
 class TabInfo
   @timeStampEnd = null

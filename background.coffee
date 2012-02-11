@@ -14,6 +14,6 @@ navigationCompleted = (args) ->
 
 
 chrome.webRequest.onBeforeRequest.addListener registerRequest, urlFilter
-chrome.webRequest.onCompleted.addListener requestCompleted, urlFilter
+chrome.webRequest.onCompleted.addListener requestCompleted, urlFilter, ["responseHeaders"]
 chrome.webNavigation.onBeforeNavigate.addListener beforeNavigate
 chrome.webNavigation.onCompleted.addListener navigationCompleted

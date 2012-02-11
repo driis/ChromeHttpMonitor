@@ -25,8 +25,9 @@ renderDetails = (tabInfo) ->
 		$("#resources").text (Object.keys tabInfo.requests).length
 
 renderHeaders = (tabInfo) -> 
-	container = $ "#headers"
-	addNameValue header, container for header in tabInfo.headers
+	if tabInfo.mainRequest? and tabInfo.mainRequest.headers?
+		container = $ "#headers"
+		addNameValue header, container for header in tabInfo.mainRequest.headers
 
 renderCookies = (tabInfo) -> 
 	chrome.cookies.getAll {url:tabInfo.url}, (cookies) -> 

@@ -10,3 +10,5 @@ renderPopup = (tab, page) ->
     		$("#initialRequestTime").text mainRequest.totalResponseTime()
     	if tabInfo.requests?
     		$("#resources").text (Object.keys tabInfo.requests).length
+    else
+    	$("#container").text("This tab was not loaded as a HTTP resource.")

@@ -9,6 +9,13 @@ Whenever Chrome finishes a page load, the time it took to load the page is displ
 
 Time to load is measured from initial request begin until the DOM content has been loaded.
 
+
+Code
+===
+The extension is built with CoffeeScript. There are PowerShell scripts to build the code (make.ps1 - build once; watch.ps1 - monitors the source directory and builds your .coffee files whenever they change).
+You will need to have CoffeeScript installed and on your path to build.
+
+
 Future
 ===
 More features are coming. Feel free to make feature requests (or even better, pull requests :-))

@@ -12,7 +12,7 @@ navigationCompleted = (args) ->
 		setNavigationCompleted args
 
 
-chrome.experimental.webRequest.onBeforeRequest.addListener listenBeforeRequest, {
+chrome.webRequest.onBeforeRequest.addListener listenBeforeRequest, {
 	urls: ["http://*/*"]
 }
 chrome.webNavigation.onBeforeNavigate.addListener beforeNavigate

@@ -2,8 +2,10 @@ renderPopup = (tab, page) ->
     tabInfo = findTabInfo tab.id, page
     console.log tabInfo
     if tabInfo?
-    	$("#url").text tabInfo.url
-    	$("#url").attr "href", tabInfo.url
+    	urlLink = $ "#url"
+    	urlLink.text tabInfo.url
+    	urlLink.attr "href", tabInfo.url
+    	urlLink.attr "alt", tabInfo.url    	
     	$("#loadTime").text tabInfo.totalResponseTime()
     	mainRequest = tabInfo.getMainRequest()
     	if mainRequest?

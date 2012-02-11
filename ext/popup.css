@@ -6,9 +6,11 @@ body
 div#main 
 {
 	background-color: #efefef;
-	min-width:430px;
+	min-width:360px;
+	max-width:600px;
 	font-family: Verdana;
 	font-size:11px;
+	overflow: hidden;
 }
 
 table 

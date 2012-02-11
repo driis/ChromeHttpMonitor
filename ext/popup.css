@@ -6,13 +6,38 @@ body
 div#main 
 {
 	background-color: #efefef;
-	width: 600px;
+	min-width:430px;
 	font-family: Verdana;
-	font-size:10;
+	font-size:11px;
+}
+
+table 
+{
+	font-family: Verdana;
+	font-size:11px;	
 }
 
 td 
 {
 	overflow: hidden;
 	white-space: nowrap;
+}
+
+td.data 
+{
+	text-align:right;
+}
+
+div#notShown
+{
+	font-size: 14px;
+}
+
+div#urlContainer 
+{
+	padding:3px;
+	background-color:#cfcfef;
+	white-space: nowrap;
+	overflow:hidden;
+	width:100%;
 }

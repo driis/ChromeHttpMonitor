@@ -9,28 +9,23 @@
 	<body>
 	<div id="main" >
 		<div id="container">
-			<table>
-				<tr>
-					<td width="160px">URL:</td>
-					<td>
-						<span id="url">-</span>
-					</td>
-				</tr>
+			<div id="urlContainer" >URL:&nbsp;<a id="url" href="#">-</a></div>
+			<table width="100%">				
 				<tr>
 					<td>Host:</td>
-					<td><span id="hostIp" >-</span></td>
+					<td class="data"><span id="hostIp" >-</span></td>
 				</tr>
 				<tr>
 					<td>Initial request time:</td>
-					<td><span id="initialRequestTime" >-</span> ms</td>
+					<td class="data"><span id="initialRequestTime" >-</span> ms</td>
 				</tr>
 				<tr>
 					<td>Complete page load time:</td>
-					<td><span id="loadTime">-</span> ms</td>
+					<td class="data" ><span id="loadTime">-</span> ms</td>
 				</tr>
 				<tr>
 					<td># Resources loaded:</td>
-					<td><span id="resources">-</span></td>
+					<td class="data" ><span id="resources">-</span></td>
 				</tr>
 			</table>
 		</div>

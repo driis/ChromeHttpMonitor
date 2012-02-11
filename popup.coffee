@@ -4,3 +4,7 @@ renderPopup = (tab, page) ->
     if tabInfo?
     	$("#url").text tabInfo.url
     	$("#loadTime").text tabInfo.totalResponseTime()
+    	mainRequest = tabInfo.getMainRequest()
+    	if mainRequest?
+    		console.log mainRequest
+    		$("#initialRequestTime").text mainRequest.totalResponseTime()

@@ -18,18 +18,19 @@ setNavigationBegin = (tab) ->
   
 setNavigationCompleted = (tab) -> 
   tabInfo = findTabInfo tab.tabId  
-  tabInfo.timestampEnd = tab.timeStamp  
-  text = Math.round(tabInfo.totalResponseTime()).toString()
+  tabInfo.timeStampEnd = tab.timeStamp  
+  text = tabInfo.totalResponseTime().toString()
   chrome.browserAction.setBadgeText { text: text, tabId: tab.tabId }  
 
 registerRequest = (req) -> 
   if req.type == "main_frame"
     tabInfo = setTabInfo(req)
+    tabInfo.mainRequest = req
   else
-    tabInfo = findTabInfo(req.tabId)  
-
+    tabInfo = findTabInfo(req.tabId)    
   if tabInfo?
     tabInfo.requests[req.requestId] = req
+    req.totalResponseTime = () -> Math.round @timeStampEnd - @timeStamp
 
 findRequest = (req) -> 
   tabInfo = findTabInfo(req.tabId)
@@ -38,18 +39,20 @@ findRequest = (req) ->
 requestCompleted = (req) -> 
   reqStored = findRequest req  
   if reqStored?
-    reqStored.timestampEnd = req.timestamp
+    reqStored.timeStampEnd = req.timeStamp
     reqStored.ip = req.ip
 
 class TabInfo
-  @timestampEnd = null
+  @timeStampEnd = null
   @navigationBegin = null
   @requests = []
   totalResponseTime: -> 
-    Math.round @timestampEnd - @timestampBegin if @timestampEnd? 
+    Math.round @timeStampEnd - @timeStampBegin if @timeStampEnd? 
+  
+  getMainRequest: -> @mainRequest
 
   constructor: (tab) ->
-    @timestampBegin = tab.timeStamp
+    @timeStampBegin = tab.timeStamp
     @url = tab.url
     @requests = []
 

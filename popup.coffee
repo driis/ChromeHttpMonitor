@@ -3,7 +3,8 @@ renderPopup = (tab, page) ->
     console.log tabInfo
     if tabInfo?
     	renderDetails tabInfo
-    	renderCookies tabInfo    	   
+    	renderCookies tabInfo   
+    	renderHeaders tabInfo 	   
     else
     	$("#notShown").text "This frame has content that is not supported, or it was loaded while the extension was not running."
     	$("#container").hide()
@@ -23,13 +24,16 @@ renderDetails = (tabInfo) ->
 	if tabInfo.requests?
 		$("#resources").text (Object.keys tabInfo.requests).length
 
+renderHeaders = (tabInfo) -> 
+	container = $ "#headers"
+	addNameValue header, container for header in tabInfo.headers
 
 renderCookies = (tabInfo) -> 
 	chrome.cookies.getAll {url:tabInfo.url}, (cookies) -> 
 		container = $ "#cookies"
-		addCookie cookie, container for cookie in cookies
+		addNameValue cookie, container for cookie in cookies
 
-addCookie = (cookie,container) -> 
+addNameValue = (cookie,container) -> 
 	name = cookie.name
 	htmlLabel = "<label for='#{ name }'>#{name}:</label>"
 	htmlTextBox = "<input name='#{name}' type='text' value='#{cookie.value}'/>"

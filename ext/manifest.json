@@ -1,7 +1,7 @@
 {
 	"name": "Chrome HTTP Monitor",
-	"version": "0.1",
-	"description": "Unobtrusively monitor the HTTP requests while browsing in Chrome",
+	"version": "1.0",
+	"description": "Unobtrusively monitor HTTP request performance while browsing in Chrome",
 	"background_page": "background.html",
 	"browser_action": {
 		"default_icon": "icons/default_button.png",
@@ -12,6 +12,7 @@
 		"48": "icons/extension_icon_medium.png",
 		"128": "icons/extension_icon_large.png"
 	},	
+	"minimum_chrome_version":"17",
 	"permissions": [
 		"tabs", 
 		"background",

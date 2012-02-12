@@ -61,9 +61,18 @@ input
 
 div#credits 
 {
-	text-align:center;
-	margin: 8px;
+	margin: 4px;
 	padding:3px;
 	border: solid 1px #22aa22;
 	background-color: #11cc11;
+}
+
+div#creditText 
+{
+	float:left;
+}
+
+a#donateLink 
+{
+	float:right;
 }

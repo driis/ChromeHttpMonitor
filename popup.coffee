@@ -16,7 +16,8 @@ renderDetails = (tabInfo) ->
 	urlLink.text tabInfo.url
 	urlLink.attr "href", tabInfo.url
 	urlLink.attr "alt", tabInfo.url    	
-	$("#loadTime").text tabInfo.totalResponseTime()
+	responseTime = tabInfo.totalResponseTime()
+	$("#loadTime").text responseTime.toString()
 	mainRequest = tabInfo.getMainRequest()
 	if mainRequest?
 		$("#initialRequestTime").text mainRequest.totalResponseTime()

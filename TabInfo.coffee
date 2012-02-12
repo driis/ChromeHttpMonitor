@@ -19,7 +19,15 @@ setNavigationBegin = (tab) ->
 setNavigationCompleted = (tab) -> 
   tabInfo = findTabInfo tab.tabId  
   tabInfo.timeStampEnd = tab.timeStamp  
-  text = tabInfo.totalResponseTime().toString()
+  responseTime = tabInfo.totalResponseTime()
+  text = responseTime.toString()
+  if responseTime <= 1000
+    chrome.browserAction.setIcon {path: "icons/fast_button.png", tabId:tab.tabId}
+    chrome.browserAction.setBadgeBackgroundColor { color: [0,160,0,200], tabId:tab.tabId}
+  if responseTime > 1000 and responseTime <= 2400
+    chrome.browserAction.setIcon {path: "icons/medium_button.png", tabId:tab.tabId}
+  if responseTime > 2400 
+    chrome.browserAction.setIcon {path: "icons/slow_button.png", tabId:tab.tabId} 
   chrome.browserAction.setBadgeText { text: text, tabId: tab.tabId }  
 
 registerRequest = (req) -> 

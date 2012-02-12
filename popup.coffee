@@ -38,6 +38,5 @@ addNameValue = (cookie,container) ->
 	name = cookie.name
 	htmlLabel = "<label for='#{ name }'>#{name}:</label>"
 	htmlTextBox = "<input name='#{name}' type='text' value='#{cookie.value}'/>"
-	sep = "<div>&nbsp;</div>"
-	c = container.append htmlLabel, htmlTextBox, sep
+	c = container.append htmlLabel, htmlTextBox
 

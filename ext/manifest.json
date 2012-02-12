@@ -4,9 +4,14 @@
 	"description": "Unobtrusively monitor the HTTP requests while browsing in Chrome",
 	"background_page": "background.html",
 	"browser_action": {
-		"default_icon": "icon.png",
+		"default_icon": "icons/default_button.png",
 		"popup": "popup.html"
 	},
+	"icons": {
+		"16": "icons/extension_icon_small.png",
+		"48": "icons/extension_icon_medium.png",
+		"128": "icons/extension_icon_large.png"
+	},	
 	"permissions": [
 		"tabs", 
 		"background",

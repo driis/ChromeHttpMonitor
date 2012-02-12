@@ -56,5 +56,14 @@ label
 
 input 
 {
-	width:55%;
+	width:56%;
+}
+
+div#credits 
+{
+	text-align:center;
+	margin: 8px;
+	padding:3px;
+	border: solid 1px #22aa22;
+	background-color: #11cc11;
 }

@@ -14,8 +14,7 @@
 	},	
 	"minimum_chrome_version":"17",
 	"permissions": [
-		"tabs", 
-		"background",
+		"tabs", 		
 		"webRequest", 
 		"webNavigation", "http://*/*", "https://*/*", 
 		"cookies"

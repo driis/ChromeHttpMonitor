@@ -1,6 +1,6 @@
 {
 	"name": "Chrome HTTP Monitor",
-	"version": "1.0",
+	"version": "1.0.0.1",
 	"description": "Unobtrusively monitor HTTP request performance while browsing in Chrome",
 	"background_page": "background.html",
 	"browser_action": {

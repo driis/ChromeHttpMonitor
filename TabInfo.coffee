@@ -7,9 +7,9 @@ setTabInfo = (args) ->
     window.headerbag[args.tabId] = info
 
 getSelectedTab = (callback) -> 
-  chrome.tabs.query(
-    {windowId: chrome.windows.WINDOW_ID_CURRENT, active: true}, 
-    (tabs) -> callback tabs[0])
+  chrome.windows.getCurrent((window) ->
+    chrome.tabs.query({windowId: window.id, active: true}, (tabs) -> 
+      callback tabs[0]))
 
 setNavigationBegin = (tab) -> 
   tabInfo = findTabInfo tab.tabId
